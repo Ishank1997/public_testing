@@ -1,4 +1,6 @@
 FROM openjdk:8
+RUN apt-get update -y
+RUN  apt install awscli -y
 RUN aws s3 cp s3://frontend-max/ . --recursive
 ADD ./GeoIP /usr/share/GeoIP
 ADD https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-agent.jar /opt/newrelic.jar
